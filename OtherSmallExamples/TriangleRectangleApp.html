@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="InitDemo();">
+	<script id="vertex-shader" type="x-shader/x-vertex">
+	precision mediump float;
+	
+	attribute vec2 vertPosition;
+	attribute vec3 vertColor;
+	varying vec3 fragColor;
+	
+	void main()
+	{
+		fragColor = vertColor;
+		gl_Position = vec4(vertPosition, 0.0, 1.0);
+	}
+	</script>
+
+	<script id="fragment-shader" type="x-shader/x-fragment">
+	precision mediump float;
+	
+	varying vec3 fragColor;
+	void main()
+	{
+		gl_FragColor = vec4(fragColor, 1.0);
+	}
+	</script>
+
+	<h1>WebGL</h1>
+	<canvas id="game-surface" width="800" height="600">
+		Your browser does not support HTML5
+	</canvas>
+	<br>
+	<i>Demo is above this text</i>
+	<script src="TriangleRectangleApp.js"></script>
+	<script type="text/javascript" src="initShaders.js"></script>
+	<script src="gl-matrix.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body onload="InitDemo();">
+	<script id="vertex-shader" type="x-shader/x-vertex">
+	precision mediump float;
+	
+	attribute vec2 vertPosition;
+	vec3 vertColor;
+	varying vec3 fragColor;
+	uniform int setColor;
+	
+	void main()
+	{
+		if( setColor == 0)
+		{
+			vertColor = vec3(0.0, 1.0, 0.0);
+		}
+		if( setColor == 1)
+		{
+			vertColor = vec3(0.0, 0.0, 0.0);
+		}
+		fragColor = vertColor;
+		gl_Position = vec4(vertPosition, 0.0, 1.0);
+	}
+	</script>
+
+	<script id="fragment-shader" type="x-shader/x-fragment">
+	precision mediump float;
+	
+	varying vec3 fragColor;
+	void main()
+	{
+		gl_FragColor = vec4(fragColor, 1.0);
+	}
+	</script>
+
+	<canvas id="game-surface" width="500" height="500">
+		Your browser does not support HTML5
+	</canvas>
+	<br>
+	<button id = "SetColorButton">
+		Set Color
+	</button>
+	<script src="SetColorApp.js"></script>
+	<script type="text/javascript" src="initShaders.js"></script>
+
+</body>
+</html>
