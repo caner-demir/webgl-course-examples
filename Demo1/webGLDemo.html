@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WebGL - Demo</title>
+</head>
+<body onload="InitDemo();">
+
+	<h1>WebGL - Demo</h1>
+	<canvas id="demo-surface" width="512" height="512">
+		Your browser does not support HTML5
+	</canvas>
+	<br>
+	<button id = "StartStopButton">
+		Start / Stop
+	</button>
+	<button id = "DirectionButton">
+		Change Rotation Direction
+	</button>
+	<output id="outputRotate"></output>
+	<div class="slidecontainer">
+		Change Font Size:
+		<input type="range" min="1" max="20" value="20" class="slider" id="scaleSlider">
+		Size:
+		<output id="scaleValue"></output>
+	</div>
+	<div id="container">
+		Pick a Color:
+		<input type="radio" id="red" name="colorRadio" value="red" checked="checked">
+		<label for="red">Red</label>
+
+		<input type="radio" id="green" name="colorRadio" value="green">
+		<label for="green">Green</label>
+
+		<input type="radio" id="blue" name="colorRadio" value="blue">
+		<label for="blue">Blue</label>
+	</div>
+		You can move objects with keyboard arrow keys: ← ↑ ↓ →
+	<script src="webGLDemoApp.js"></script>
+	<script src="MV.js"></script>
+</body>
+</html>
