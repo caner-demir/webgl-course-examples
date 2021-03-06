@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WebGL - Tutorial</title>
+</head>
+<body onload="InitDemo();">
+
+	<h1>WebGL</h1>
+	<canvas id="game-surface" width="600" height="600">
+		Your browser does not support HTML5
+	</canvas>
+	<br>
+	<i>Demo is above this text</i>
+	<script src="initShaders.js"></script>
+	<script src="MV.js"></script>
+	<script src="RecursiveTriangleApp.js"></script>
+
+</body>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+	precision mediump float;
+	attribute vec3 vertPosition;
+	attribute vec4 vertColor;
+	varying vec4 fragColor;
+
+	void main()
+	{
+		//gl_PointSize = 3.0;
+		fragColor = vertColor;
+		//gl_Position = vec4(vertPosition, 0.0, 1.0);
+		gl_Position = vec4(vertPosition, 1.0);
+	}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment"> 
+	precision mediump float;
+	varying vec4 fragColor;
+	void main()
+	{
+		//gl_FragColor = vec4(fragColor, 1.0);
+		//gl_FragColor = vec4(1.0, 0.05, 0.0, 1.0);
+		gl_FragColor = fragColor;
+	}
+</script>
+
+</html>
